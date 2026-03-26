@@ -520,6 +520,21 @@ const translations: Record<Language, TextStrings> = {
   },
 }
 
+function FoodCard({ emoji, name, desc, cal }: { emoji: string; name: string; desc: string; cal: string }) {
+  return (
+    <div className="flex items-start gap-3 p-3 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors">
+      <span className="text-3xl mt-0.5">{emoji}</span>
+      <div className="flex-1 min-w-0">
+        <div className="flex items-center gap-2 flex-wrap">
+          <span className="font-bold text-sm text-text">{name}</span>
+          <span className="text-xs px-2 py-0.5 bg-purple-100 text-purple-700 rounded-full font-semibold">{cal}</span>
+        </div>
+        <p className="text-xs text-text-muted mt-0.5">{desc}</p>
+      </div>
+    </div>
+  )
+}
+
 export default function Calculator() {
   const [heightValue, setHeightValue] = useState<string>('170')
   const [heightUnit, setHeightUnit] = useState<HeightUnit>('cm')
@@ -816,6 +831,141 @@ export default function Calculator() {
                 (BMI / 25, ratio to normal)
               </p>
             </div>
+          </div>
+        )}
+
+        {/* Diet & Food Recommendations */}
+        {bmiResult && (
+          <div className="card max-w-lg mx-auto mb-8">
+            <h2 className="text-2xl font-bold mb-4 text-text">
+              {language === 'ko' ? '식단 추천' : 'Diet Recommendations'}
+            </h2>
+
+            {bmiResult.bmi < 18.5 && (
+              <div>
+                <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded mb-4">
+                  <p className="font-bold text-blue-800 mb-2">
+                    {language === 'ko' ? '체중 증가가 필요합니다' : 'You need to gain weight'}
+                  </p>
+                  <p className="text-sm text-blue-700">
+                    {language === 'ko'
+                      ? '건강한 체중 증가를 위해 영양이 풍부한 고칼로리 식단을 추천합니다.'
+                      : 'Focus on nutrient-dense, high-calorie foods for healthy weight gain.'}
+                  </p>
+                </div>
+                <div className="space-y-3">
+                  <FoodCard emoji="🥜" name={language === 'ko' ? '견과류 & 땅콩버터' : 'Nuts & Nut Butters'} desc={language === 'ko' ? '아몬드, 호두, 캐슈넛 — 건강한 지방과 단백질이 풍부' : 'Almonds, walnuts, cashews — rich in healthy fats & protein'} cal="600+ kcal/100g" />
+                  <FoodCard emoji="🥑" name={language === 'ko' ? '아보카도' : 'Avocados'} desc={language === 'ko' ? '건강한 불포화지방과 칼륨이 풍부한 과일' : 'Packed with healthy unsaturated fats and potassium'} cal="160 kcal/100g" />
+                  <FoodCard emoji="🍳" name={language === 'ko' ? '계란 & 닭가슴살' : 'Eggs & Chicken Breast'} desc={language === 'ko' ? '고단백 식품으로 근육 생성에 필수' : 'High protein foods essential for muscle building'} cal="155-165 kcal/100g" />
+                  <FoodCard emoji="🍚" name={language === 'ko' ? '현미밥 & 고구마' : 'Brown Rice & Sweet Potatoes'} desc={language === 'ko' ? '복합 탄수화물로 에너지 충전, 식이섬유 풍부' : 'Complex carbs for energy, rich in fiber'} cal="110-130 kcal/100g" />
+                  <FoodCard emoji="🥛" name={language === 'ko' ? '우유 & 그릭요거트' : 'Milk & Greek Yogurt'} desc={language === 'ko' ? '칼슘과 단백질 보충에 좋은 유제품' : 'Great dairy sources for calcium and protein'} cal="60-100 kcal/100g" />
+                  <FoodCard emoji="🫒" name={language === 'ko' ? '올리브오일 & 들기름' : 'Olive Oil & Healthy Oils'} desc={language === 'ko' ? '요리에 추가하면 쉽게 칼로리 증가' : 'Easy way to add calories to any meal'} cal="880 kcal/100ml" />
+                </div>
+                <div className="mt-4 bg-blue-50 rounded-lg p-4">
+                  <p className="font-semibold text-sm text-blue-800 mb-2">{language === 'ko' ? '추천 습관' : 'Recommended Habits'}</p>
+                  <ul className="text-sm text-blue-700 space-y-1">
+                    <li>{language === 'ko' ? '• 하루 3끼 + 간식 2~3회' : '• Eat 3 meals + 2-3 snacks daily'}</li>
+                    <li>{language === 'ko' ? '• 식사 전 물 대신 식사 후에 마시기' : '• Drink water after meals, not before'}</li>
+                    <li>{language === 'ko' ? '• 근력 운동으로 건강하게 체중 증가' : '• Combine with strength training for healthy gains'}</li>
+                  </ul>
+                </div>
+              </div>
+            )}
+
+            {bmiResult.bmi >= 18.5 && bmiResult.bmi < 25 && (
+              <div>
+                <div className="bg-green-50 border-l-4 border-green-400 p-4 rounded mb-4">
+                  <p className="font-bold text-green-800 mb-2">
+                    {language === 'ko' ? '정상 체중입니다! 유지하세요' : 'You are at a healthy weight! Keep it up!'}
+                  </p>
+                  <p className="text-sm text-green-700">
+                    {language === 'ko'
+                      ? '현재 체중을 유지하기 위한 균형 잡힌 식단을 추천합니다.'
+                      : 'Maintain your weight with a balanced, nutritious diet.'}
+                  </p>
+                </div>
+                <div className="space-y-3">
+                  <FoodCard emoji="🥗" name={language === 'ko' ? '샐러드 & 채소' : 'Salads & Vegetables'} desc={language === 'ko' ? '다양한 색상의 채소로 비타민과 미네랄 섭취' : 'Colorful veggies for vitamins and minerals'} cal="20-50 kcal/100g" />
+                  <FoodCard emoji="🐟" name={language === 'ko' ? '생선 (연어, 고등어)' : 'Fish (Salmon, Mackerel)'} desc={language === 'ko' ? '오메가3 지방산이 풍부한 건강한 단백질원' : 'Rich in omega-3 fatty acids, great protein source'} cal="200-250 kcal/100g" />
+                  <FoodCard emoji="🫘" name={language === 'ko' ? '콩류 & 렌틸' : 'Legumes & Lentils'} desc={language === 'ko' ? '식물성 단백질과 식이섬유의 보고' : 'Excellent plant protein and fiber source'} cal="115 kcal/100g" />
+                  <FoodCard emoji="🍎" name={language === 'ko' ? '제철 과일' : 'Seasonal Fruits'} desc={language === 'ko' ? '사과, 바나나, 베리류 — 자연의 당분과 비타민' : 'Apples, bananas, berries — natural sugars and vitamins'} cal="50-90 kcal/100g" />
+                  <FoodCard emoji="🥩" name={language === 'ko' ? '살코기 (닭, 소 안심)' : 'Lean Meats (Chicken, Beef Tenderloin)'} desc={language === 'ko' ? '필수 아미노산 공급, 근육 유지' : 'Essential amino acids for muscle maintenance'} cal="150-200 kcal/100g" />
+                </div>
+                <div className="mt-4 bg-green-50 rounded-lg p-4">
+                  <p className="font-semibold text-sm text-green-800 mb-2">{language === 'ko' ? '유지 습관' : 'Maintenance Habits'}</p>
+                  <ul className="text-sm text-green-700 space-y-1">
+                    <li>{language === 'ko' ? '• 하루 물 8잔 이상 마시기' : '• Drink 8+ glasses of water daily'}</li>
+                    <li>{language === 'ko' ? '• 규칙적인 식사 시간 지키기' : '• Maintain regular meal times'}</li>
+                    <li>{language === 'ko' ? '• 주 3~5회 운동 (유산소 + 근력)' : '• Exercise 3-5 times per week (cardio + strength)'}</li>
+                  </ul>
+                </div>
+              </div>
+            )}
+
+            {bmiResult.bmi >= 25 && bmiResult.bmi < 30 && (
+              <div>
+                <div className="bg-orange-50 border-l-4 border-orange-400 p-4 rounded mb-4">
+                  <p className="font-bold text-orange-800 mb-2">
+                    {language === 'ko' ? '체중 감량을 권장합니다' : 'Weight loss is recommended'}
+                  </p>
+                  <p className="text-sm text-orange-700">
+                    {language === 'ko'
+                      ? '저칼로리 고영양 식단으로 점진적인 체중 감량을 시작하세요.'
+                      : 'Start gradual weight loss with low-calorie, nutrient-rich foods.'}
+                  </p>
+                </div>
+                <div className="space-y-3">
+                  <FoodCard emoji="🥦" name={language === 'ko' ? '브로콜리 & 시금치' : 'Broccoli & Spinach'} desc={language === 'ko' ? '초저칼로리 + 높은 포만감, 비타민C/K 풍부' : 'Ultra low calorie, high satiety, rich in vitamins C/K'} cal="25-35 kcal/100g" />
+                  <FoodCard emoji="🍗" name={language === 'ko' ? '닭가슴살 (껍질 제거)' : 'Skinless Chicken Breast'} desc={language === 'ko' ? '지방 적고 단백질 높은 다이어트 필수 식품' : 'Low fat, high protein — essential for diet'} cal="165 kcal/100g" />
+                  <FoodCard emoji="🥒" name={language === 'ko' ? '오이 & 셀러리' : 'Cucumber & Celery'} desc={language === 'ko' ? '수분이 많고 칼로리 거의 없는 간식' : 'High water content, almost zero calories'} cal="10-16 kcal/100g" />
+                  <FoodCard emoji="🍄" name={language === 'ko' ? '버섯류' : 'Mushrooms'} desc={language === 'ko' ? '고기 대체 가능, 식이섬유와 비타민D 풍부' : 'Great meat substitute, rich in fiber and vitamin D'} cal="22 kcal/100g" />
+                  <FoodCard emoji="🫚" name={language === 'ko' ? '생강차 & 녹차' : 'Ginger Tea & Green Tea'} desc={language === 'ko' ? '신진대사 촉진, 지방 연소 도움' : 'Boosts metabolism, helps fat burning'} cal="0-2 kcal/cup" />
+                  <FoodCard emoji="🥚" name={language === 'ko' ? '삶은 계란' : 'Boiled Eggs'} desc={language === 'ko' ? '포만감 높고 단백질 풍부한 간식' : 'High satiety, protein-rich snack'} cal="155 kcal/100g" />
+                </div>
+                <div className="mt-4 bg-orange-50 rounded-lg p-4">
+                  <p className="font-semibold text-sm text-orange-800 mb-2">{language === 'ko' ? '감량 습관' : 'Weight Loss Habits'}</p>
+                  <ul className="text-sm text-orange-700 space-y-1">
+                    <li>{language === 'ko' ? '• 하루 500kcal 적게 먹기 (주 0.5kg 감량)' : '• Eat 500kcal less per day (lose ~0.5kg/week)'}</li>
+                    <li>{language === 'ko' ? '• 야식 피하기, 저녁 7시 이후 금식' : '• Avoid late-night eating, fast after 7PM'}</li>
+                    <li>{language === 'ko' ? '• 걷기 30분 + 가벼운 근력 운동' : '• 30 min walking + light strength training'}</li>
+                    <li>{language === 'ko' ? '• 가공식품, 탄산음료, 과자 줄이기' : '• Reduce processed food, soda, and snacks'}</li>
+                  </ul>
+                </div>
+              </div>
+            )}
+
+            {bmiResult.bmi >= 30 && (
+              <div>
+                <div className="bg-red-50 border-l-4 border-red-400 p-4 rounded mb-4">
+                  <p className="font-bold text-red-800 mb-2">
+                    {language === 'ko' ? '건강 관리가 시급합니다' : 'Immediate health management needed'}
+                  </p>
+                  <p className="text-sm text-red-700">
+                    {language === 'ko'
+                      ? '전문의 상담과 함께 식단 조절을 시작하세요. 당뇨, 심혈관 질환 위험이 높아집니다.'
+                      : 'Consult a healthcare professional. Risk of diabetes and cardiovascular disease increases.'}
+                  </p>
+                </div>
+                <div className="space-y-3">
+                  <FoodCard emoji="🥬" name={language === 'ko' ? '잎채소 (양배추, 케일)' : 'Leafy Greens (Cabbage, Kale)'} desc={language === 'ko' ? '초저칼로리, 항산화 성분 풍부' : 'Ultra low calorie, rich in antioxidants'} cal="25-30 kcal/100g" />
+                  <FoodCard emoji="🐟" name={language === 'ko' ? '흰살 생선 (대구, 명태)' : 'White Fish (Cod, Pollock)'} desc={language === 'ko' ? '지방이 거의 없는 고단백 식품' : 'Almost zero fat, high protein'} cal="80-100 kcal/100g" />
+                  <FoodCard emoji="🥣" name={language === 'ko' ? '오트밀 & 귀리' : 'Oatmeal & Oats'} desc={language === 'ko' ? '혈당 조절, 콜레스테롤 감소에 도움' : 'Helps regulate blood sugar and lower cholesterol'} cal="68 kcal/100g (cooked)" />
+                  <FoodCard emoji="🫐" name={language === 'ko' ? '베리류 (블루베리, 라즈베리)' : 'Berries (Blueberry, Raspberry)'} desc={language === 'ko' ? '저칼로리 + 항산화, 혈당 조절 도움' : 'Low calorie + antioxidants, helps blood sugar'} cal="32-57 kcal/100g" />
+                  <FoodCard emoji="🍵" name={language === 'ko' ? '녹차 & 무가당 음료' : 'Green Tea & Unsweetened Drinks'} desc={language === 'ko' ? '설탕 음료 대체, 카테킨이 지방 분해 도움' : 'Replace sugary drinks, catechins help break down fat'} cal="0-2 kcal/cup" />
+                  <FoodCard emoji="🥕" name={language === 'ko' ? '당근 & 토마토' : 'Carrots & Tomatoes'} desc={language === 'ko' ? '식이섬유 풍부, 포만감 높은 건강 간식' : 'High fiber, satisfying healthy snack'} cal="18-41 kcal/100g" />
+                </div>
+                <div className="mt-4 bg-red-50 rounded-lg p-4">
+                  <p className="font-semibold text-sm text-red-800 mb-2">{language === 'ko' ? '필수 실천 사항' : 'Essential Actions'}</p>
+                  <ul className="text-sm text-red-700 space-y-1">
+                    <li>{language === 'ko' ? '• 전문의 상담 필수 (내과 / 비만클리닉)' : '• Consult a doctor (internal medicine / obesity clinic)'}</li>
+                    <li>{language === 'ko' ? '• 설탕, 밀가루, 튀긴 음식 최소화' : '• Minimize sugar, flour, and fried foods'}</li>
+                    <li>{language === 'ko' ? '• 매일 30분 이상 걷기부터 시작' : '• Start with 30+ min daily walking'}</li>
+                    <li>{language === 'ko' ? '• 음식 일기 쓰기 — 먹는 것 기록하기' : '• Keep a food diary — track what you eat'}</li>
+                    <li>{language === 'ko' ? '• 급격한 다이어트 금지, 점진적 감량' : '• No crash diets, lose weight gradually'}</li>
+                  </ul>
+                </div>
+              </div>
+            )}
           </div>
         )}
 

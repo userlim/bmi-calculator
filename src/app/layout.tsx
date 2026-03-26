@@ -2,14 +2,14 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'BMI Calculator – Free Body Mass Index Calculator',
+  title: 'BMI Calculator ??Free Body Mass Index Calculator',
   description:
     'Free online BMI calculator. Calculate your Body Mass Index instantly. Get your BMI value, category, and healthy weight range with our easy-to-use tool.',
   keywords:
     'BMI calculator, body mass index, BMI chart, healthy weight calculator, weight calculator, BMI formula, body weight',
   metadataBase: new URL('https://bmi-calculator-tool.vercel.app'),
   openGraph: {
-    title: 'BMI Calculator – Free Body Mass Index Calculator',
+    title: 'BMI Calculator ??Free Body Mass Index Calculator',
     description:
       'Calculate your Body Mass Index (BMI) instantly. Get your health category and healthy weight range.',
     url: 'https://bmi-calculator-tool.vercel.app',
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'BMI Calculator – Free Body Mass Index Calculator',
+    title: 'BMI Calculator ??Free Body Mass Index Calculator',
     description:
       'Calculate your Body Mass Index (BMI) instantly with our free online tool.',
   },
@@ -46,6 +46,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta name="google-site-verification" content="hsjncRi9cl3tz3Otd6SJKurSt_V1bZ0AKO-bdWIGeHM" />
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#7c5cbf" />

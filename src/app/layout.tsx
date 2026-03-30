@@ -72,6 +72,13 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         <main>{children}</main>
+        <footer className="border-t border-gray-200 py-4 text-center text-sm text-gray-400">
+          <div className="flex flex-wrap justify-center gap-4 mb-3">
+            <a href="/privacy-policy" className="text-blue-600 hover:text-blue-800 text-xs">Privacy Policy</a>
+            <a href="/terms" className="text-blue-600 hover:text-blue-800 text-xs">Terms of Service</a>
+          </div>
+          &copy; 2026 BMI Calculator. All rights reserved.
+        </footer>
       </body>
     </html>
   )

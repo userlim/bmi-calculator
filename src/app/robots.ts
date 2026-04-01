@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: [],
     },
-    sitemap: 'https://bmi-calculator-tool.vercel.app/sitemap.xml',
+    sitemap: 'https://bmi-calculator-free.vercel.app/sitemap.xml',
   }
 }

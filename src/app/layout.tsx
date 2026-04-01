@@ -7,12 +7,12 @@ export const metadata: Metadata = {
     'Free online BMI calculator. Calculate your Body Mass Index instantly. Get your BMI value, category, and healthy weight range with our easy-to-use tool.',
   keywords:
     'BMI calculator, body mass index, BMI chart, healthy weight calculator, weight calculator, BMI formula, body weight',
-  metadataBase: new URL('https://bmi-calculator-tool.vercel.app'),
+  metadataBase: new URL('https://bmi-calculator-free.vercel.app'),
   openGraph: {
     title: 'BMI Calculator ??Free Body Mass Index Calculator',
     description:
       'Calculate your Body Mass Index (BMI) instantly. Get your health category and healthy weight range.',
-    url: 'https://bmi-calculator-tool.vercel.app',
+    url: 'https://bmi-calculator-free.vercel.app',
     siteName: 'BMI Calculator',
     locale: 'en_US',
     type: 'website',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     icon: '/favicon.svg',
   },
   alternates: {
-    canonical: 'https://bmi-calculator-tool.vercel.app',
+    canonical: 'https://bmi-calculator-free.vercel.app',
   },
 }
 

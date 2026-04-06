@@ -56,7 +56,7 @@ export default function RootLayout({
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <script
           async
-          src="https://www.googletagmanager.com/gtag/js?id=G-P08T3SZDQH"
+          src="https://www.googletagmanager.com/gtag/js?id=G-P04TH8XJJ9"
         ></script>
         <script
           dangerouslySetInnerHTML={{
@@ -64,7 +64,7 @@ export default function RootLayout({
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-P08T3SZDQH', {
+              gtag('config', 'G-P04TH8XJJ9', {
                 'anonymize_ip': true,
                 'allow_google_signals': false
               });

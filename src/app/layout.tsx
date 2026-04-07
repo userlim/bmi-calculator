@@ -2,16 +2,16 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'BMI Calculator ??Free Body Mass Index Calculator',
+  title: 'BMI Calculator (Free, 2026) – Instant Body Mass Index Check',
   description:
-    'Free online BMI calculator. Calculate your Body Mass Index instantly. Get your BMI value, category, and healthy weight range with our easy-to-use tool.',
+    'Calculate your BMI in seconds. Free 2026 Body Mass Index calculator with health categories, ideal weight range, and personalized recommendations. No signup needed.',
   keywords:
     'BMI calculator, body mass index, BMI chart, healthy weight calculator, weight calculator, BMI formula, body weight',
   metadataBase: new URL('https://bmi-calculator-free.vercel.app'),
   openGraph: {
-    title: 'BMI Calculator ??Free Body Mass Index Calculator',
+    title: 'BMI Calculator (Free, 2026) – Instant Body Mass Index Check',
     description:
-      'Calculate your Body Mass Index (BMI) instantly. Get your health category and healthy weight range.',
+      'Calculate your BMI in seconds. Free 2026 Body Mass Index calculator with health categories, ideal weight range, and personalized recommendations. No signup needed.',
     url: 'https://bmi-calculator-free.vercel.app',
     siteName: 'BMI Calculator',
     locale: 'en_US',
@@ -75,6 +75,15 @@ export default function RootLayout({
       <body className="antialiased">
         <main>{children}</main>
         <footer className="border-t border-gray-200 py-4 text-center text-sm text-gray-400">
+          
+            <div className="flex flex-wrap justify-center gap-4 mb-3">
+              <span className="text-xs text-gray-400 font-semibold">Related Free Tools:</span>
+                <a href="https://gold-price-today-calculator.vercel.app" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 text-xs">Gold Price Calculator</a>
+                <a href="https://take-home-pay-calculator-sandy.vercel.app" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 text-xs">Salary Tax Calculator</a>
+                <a href="https://inflation-rate-calculator.vercel.app" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 text-xs">Inflation Calculator</a>
+                <a href="https://loan-payment-calculator-eosin.vercel.app" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 text-xs">Loan Calculator</a>
+                <a href="https://utilicalc.vercel.app" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 text-xs">UtiliCalc</a>
+            </div>
           <div className="flex flex-wrap justify-center gap-4 mb-3">
             <a href="/privacy-policy" className="text-blue-600 hover:text-blue-800 text-xs">Privacy Policy</a>
             <a href="/terms" className="text-blue-600 hover:text-blue-800 text-xs">Terms of Service</a>

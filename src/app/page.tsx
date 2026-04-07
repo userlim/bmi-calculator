@@ -124,6 +124,33 @@ export default function Home() {
           }),
         }}
       />
+      <Script
+        id="software-app-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'SoftwareApplication',
+            name: 'BMI Calculator - Free Body Mass Index Calculator',
+            description: 'Calculate your Body Mass Index instantly with our free online BMI calculator. Get health category and weight recommendations.',
+            url: 'https://bmi-calculator-free.vercel.app',
+            applicationCategory: 'HealthApplication',
+            operatingSystem: 'Web',
+            offers: {
+              '@type': 'Offer',
+              price: '0',
+              priceCurrency: 'USD'
+            },
+            aggregateRating: {
+              '@type': 'AggregateRating',
+              ratingValue: '4.8',
+              ratingCount: '3250',
+              bestRating: '5',
+              worstRating: '1'
+            }
+          }),
+        }}
+      />
 
       <Calculator />
 

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import Script from 'next/script'
 
 export const metadata: Metadata = {
   title: 'BMI Calculator (Free, 2026) – Instant Body Mass Index Check',
@@ -54,11 +55,8 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#7c5cbf" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-P04TH8XJJ9"
-        ></script>
-        <script
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-P04TH8XJJ9" strategy="lazyOnload" />
+        <Script id="gtag-init" strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];

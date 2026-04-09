@@ -184,6 +184,32 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* Extended Content Section for SEO depth */}
+      <section id="content-depth-section" className="mt-12 max-w-3xl mx-auto px-4">
+        <h2 className="text-2xl font-bold mb-6">Complete Guide</h2>
+        
+            <div className="mb-6">
+              <h3 className="text-lg font-semibold mb-2">How BMI Is Calculated</h3>
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm" dangerouslySetInnerHTML={{ __html: `Body Mass Index (BMI) is one of the most widely used health screening metrics globally. The formula is straightforward: BMI = weight (kg) ÷ height² (m²). For imperial units, the formula becomes BMI = (weight in pounds × 703) ÷ height² (in inches). This formula was developed by Belgian mathematician Adolphe Quetelet in the 1830s and has been adopted by the World Health Organization (WHO) as a standard health assessment tool.` }} />
+            </div>
+            <div className="mb-6">
+              <h3 className="text-lg font-semibold mb-2">Understanding BMI Categories</h3>
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm" dangerouslySetInnerHTML={{ __html: `The WHO classifies BMI into four main categories. <strong>Underweight</strong> is defined as a BMI below 18.5, which may indicate nutritional deficiency or underlying health conditions. <strong>Normal weight</strong> ranges from 18.5 to 24.9, considered the healthiest range for most adults. <strong>Overweight</strong> spans 25.0 to 29.9, indicating excess body weight that may increase health risks. <strong>Obese</strong> is classified as 30.0 and above, with further subdivisions into Class I (30-34.9), Class II (35-39.9), and Class III (40+) obesity.` }} />
+            </div>
+            <div className="mb-6">
+              <h3 className="text-lg font-semibold mb-2">BMI Limitations and Alternatives</h3>
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm" dangerouslySetInnerHTML={{ __html: `While BMI is a useful screening tool, it has notable limitations. It cannot distinguish between muscle mass and fat mass, meaning athletes and bodybuilders may be classified as overweight despite having low body fat percentages. BMI also doesn't account for age, sex, ethnicity, or body fat distribution. Waist-to-hip ratio, body fat percentage measurements, and the newer Body Roundness Index (BRI) are complementary metrics that provide a more complete picture of body composition and health risk.` }} />
+            </div>
+            <div className="mb-6">
+              <h3 className="text-lg font-semibold mb-2">Health Risks Associated with Abnormal BMI</h3>
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm" dangerouslySetInnerHTML={{ __html: `Research consistently shows correlations between BMI outside the normal range and increased health risks. Higher BMI is associated with increased risk of cardiovascular disease, type 2 diabetes, certain cancers, and joint problems. Conversely, very low BMI is associated with weakened immune function, osteoporosis, and nutritional deficiencies. However, BMI should be considered alongside other health indicators rather than used in isolation for medical decisions.` }} />
+            </div>
+            <div className="mb-6">
+              <h3 className="text-lg font-semibold mb-2">Tips for Maintaining a Healthy BMI</h3>
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm" dangerouslySetInnerHTML={{ __html: `Achieving and maintaining a healthy BMI involves a balanced approach to diet and physical activity. The CDC recommends at least 150 minutes of moderate-intensity aerobic activity per week, combined with a nutrient-rich diet. Small, sustainable changes — like taking stairs instead of elevators, choosing whole grains, and managing portion sizes — often prove more effective than drastic lifestyle overhauls. Regular monitoring of your BMI can help you track progress toward your health goals.` }} />
+            </div>
+      </section>
     </>
   )
 }

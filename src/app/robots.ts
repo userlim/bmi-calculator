@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: [],
+      disallow: ['/api/'],
     },
     sitemap: 'https://bmi-calculator-free.vercel.app/sitemap.xml',
   }

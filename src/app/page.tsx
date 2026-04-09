@@ -3,9 +3,8 @@ import Script from 'next/script'
 import Calculator from './calculator'
 
 export const metadata: Metadata = {
-  title: 'BMI Calculator – Free Body Mass Index Calculator',
-  description:
-    'Free online BMI calculator to quickly calculate your Body Mass Index. Get instant BMI results, health category, and healthy weight range recommendations.',
+  title: 'Free BMI Calculator (2026) – Check Your Body Mass Index Instantly',
+  description: 'Calculate your BMI in seconds with our free tool. Get instant results with health category breakdown. No signup required — accurate BMI calculation for adults & teens.',
   keywords:
     'BMI calculator, body mass index calculator, BMI chart, healthy weight calculator, weight calculator, BMI formula, obesity calculator, health calculator',
   openGraph: {

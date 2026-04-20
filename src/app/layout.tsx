@@ -4,15 +4,12 @@ import Script from 'next/script'
 
 export const metadata: Metadata = {
   title: 'BMI Calculator (Free, 2026) – Instant Body Mass Index Check',
-  description:
-    'Calculate your BMI in seconds. Free 2026 Body Mass Index calculator with health categories, ideal weight range, and personalized recommendations. No signup needed.',
-  keywords:
-    'bmi calculator, body mass index calculator, bmi chart, healthy weight calculator, am i overweight, bmi calculator for women, bmi calculator for men, ideal weight calculator, bmi formula, normal bmi range, calculate my bmi, bmi calculator kg, healthy bmi for adults, free bmi calculator online, bmi calculator 2026',
+  description: 'Calculate your BMI in seconds. Free 2026 Body Mass Index calculator with health categories, ideal weight range, and personalized recommendations. No signup needed.',
+  keywords: 'bmi calculator, body mass index calculator, bmi chart, healthy weight calculator, am i overweight, bmi calculator for women, bmi calculator for men, ideal weight calculator, bmi formula, normal bmi range, calculate my bmi, bmi calculator kg, healthy bmi for adults, free bmi calculator online, bmi calculator 2026',
   metadataBase: new URL('https://bmi-calculator-free.vercel.app'),
   openGraph: {
     title: 'BMI Calculator (Free, 2026) – Instant Body Mass Index Check',
-    description:
-      'Calculate your BMI in seconds. Free 2026 Body Mass Index calculator with health categories, ideal weight range, and personalized recommendations. No signup needed.',
+    description: 'Calculate your BMI in seconds. Free 2026 Body Mass Index calculator with health categories, ideal weight range, and personalized recommendations. No signup needed.',
     url: 'https://bmi-calculator-free.vercel.app',
     siteName: 'BMI Calculator',
     locale: 'en_US',
@@ -20,20 +17,17 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'BMI Calculator ??Free Body Mass Index Calculator',
-    description:
-      'Calculate your Body Mass Index (BMI) instantly with our free online tool.',
+    title: 'BMI Calculator',
+    description: 'Calculate your BMI in seconds. Free 2026 Body Mass Index calculator with health categories, ideal weight range, and personalized recommendations. No signup needed.',
   },
   robots: {
     index: true,
     follow: true,
-    'max-image-preview': 'large',
+    'max-image-preview': 'large' as const,
     'max-snippet': -1,
     'max-video-preview': -1,
   },
-  icons: {
-    icon: '/favicon.svg',
-  },
+  icons: { icon: '/favicon.svg' },
   alternates: {
     canonical: 'https://bmi-calculator-free.vercel.app',
     languages: {
@@ -41,8 +35,7 @@ export const metadata: Metadata = {
       'x-default': 'https://bmi-calculator-free.vercel.app',
     },
   },
-  },
-}
+};
 
 export default function RootLayout({
   children,
@@ -92,21 +85,21 @@ export default function RootLayout({
           __html: JSON.stringify({"@context": "https://schema.org", "@type": "WebPage", "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".keyword-seo-section p"]}})
         }} />
 </head>
-      <body className="antialiased bg-[#0a0a0f] text-gray-100">
+      <body className="antialiased">
         <main>{children}</main>
-        <footer className="border-t border-white/5 py-6 text-center text-sm text-gray-500 bg-black/20 backdrop-blur-sm">
+        <footer className="border-t border-white/5 py-6 text-center text-sm text-[var(--text-secondary)] bg-black/20 backdrop-blur-sm">
           
             <div className="flex flex-wrap justify-center gap-4 mb-3">
-              <span className="text-xs text-gray-500 font-semibold uppercase tracking-wider">Related Free Tools:</span>
-                <a href="https://gold-price-today-calculator.vercel.app" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-xs">Gold Price Calculator</a>
-                <a href="https://take-home-pay-calculator-sandy.vercel.app" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-xs">Take-Home Pay Calculator</a>
-                <a href="https://inflation-rate-calculator.vercel.app" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-xs">Inflation Rate Calculator</a>
-                <a href="https://loan-payment-calculator-eosin.vercel.app" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-xs">Loan Payment Calculator</a>
-                <a href="https://utilicalc.vercel.app" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-xs">UtiliCalc All-in-One Tools</a>
+              <span className="text-xs text-[var(--text-secondary)] font-semibold uppercase tracking-wider">Related Free Tools:</span>
+                <a href="https://gold-price-today-calculator.vercel.app" target="_blank" rel="noopener noreferrer" className="text-[var(--text-muted)] hover:text-white transition-colors text-xs">Gold Price Calculator</a>
+                <a href="https://take-home-pay-calculator-sandy.vercel.app" target="_blank" rel="noopener noreferrer" className="text-[var(--text-muted)] hover:text-white transition-colors text-xs">Take-Home Pay Calculator</a>
+                <a href="https://inflation-rate-calculator.vercel.app" target="_blank" rel="noopener noreferrer" className="text-[var(--text-muted)] hover:text-white transition-colors text-xs">Inflation Rate Calculator</a>
+                <a href="https://loan-payment-calculator-eosin.vercel.app" target="_blank" rel="noopener noreferrer" className="text-[var(--text-muted)] hover:text-white transition-colors text-xs">Loan Payment Calculator</a>
+                <a href="https://utilicalc.vercel.app" target="_blank" rel="noopener noreferrer" className="text-[var(--text-muted)] hover:text-white transition-colors text-xs">UtiliCalc All-in-One Tools</a>
             </div>
           <div className="flex flex-wrap justify-center gap-4 mb-3">
-            <a href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors text-xs">Privacy Policy</a>
-            <a href="/terms" className="text-gray-400 hover:text-white transition-colors text-xs">Terms of Service</a>
+            <a href="/privacy-policy" className="text-[var(--text-muted)] hover:text-white transition-colors text-xs">Privacy Policy</a>
+            <a href="/terms" className="text-[var(--text-muted)] hover:text-white transition-colors text-xs">Terms of Service</a>
           </div>
           &copy; 2026 BMI Calculator. All rights reserved.
         </footer>

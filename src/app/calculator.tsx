@@ -527,7 +527,7 @@ function FoodCard({ emoji, name, desc, cal }: { emoji: string; name: string; des
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 flex-wrap">
           <span className="font-bold text-sm text-text">{name}</span>
-          <span className="text-xs px-2 py-0.5 bg-purple-100 text-purple-700 rounded-full font-semibold">{cal}</span>
+          <span className="text-xs px-2 py-0.5 bg-[rgba(var(--accent-rgb),0.12)] text-[var(--accent)] rounded-full font-semibold">{cal}</span>
         </div>
         <p className="text-xs text-text-muted mt-0.5">{desc}</p>
       </div>
@@ -632,14 +632,14 @@ export default function Calculator() {
   if (!mounted) return null
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-purple-100 py-8 px-4">
+    <div className="min-h-screen bg-transparent py-8 px-4">
       <div className="max-w-4xl mx-auto">
         {/* Language Selector */}
         <div className="flex justify-end mb-6">
           <select
             value={language}
             onChange={(e) => setLanguage(e.target.value as Language)}
-            className="tool-input px-3 py-2 text-sm w-auto"
+            className="input px-3 py-2 text-sm w-auto"
           >
             {Object.keys(translations).map((lang) => (
               <option key={lang} value={lang}>
@@ -649,17 +649,17 @@ export default function Calculator() {
           </select>
         </div>
 
-        <h1 className="text-4xl md:text-5xl font-bold text-center mb-2 text-accent">
+        <h1 className="hero-title text-center mb-3 animate-fade-up">
           {t.title}
         </h1>
-        <p className="text-center text-text-muted mb-8">
+        <p className="hero-subtitle text-center mb-10 animate-fade-up delay-100">
           {t.categoryInfo}
         </p>
 
-        <div className="card max-w-lg mx-auto mb-8">
+        <div className="card max-w-lg mx-auto mb-8 animate-fade-up delay-200">
           {/* Height Input */}
           <div className="mb-6">
-            <label className="block text-lg font-semibold mb-2 text-text">
+            <label className="block text-sm font-medium mb-2 text-[var(--text-secondary)] uppercase tracking-wide">
               {t.height}
             </label>
             <div className="flex gap-3">
@@ -670,14 +670,14 @@ export default function Calculator() {
                 step="0.1"
                 value={heightValue}
                 onChange={(e) => setHeightValue(e.target.value)}
-                className="tool-input flex-1"
+                className="input flex-1"
                 placeholder="170"
               />
               <button
                 onClick={() =>
                   setHeightUnit(heightUnit === 'cm' ? 'ft' : 'cm')
                 }
-                className="btn-primary whitespace-nowrap"
+                className="btn btn-secondary whitespace-nowrap"
               >
                 {heightUnit === 'cm' ? 'cm' : `${t.height} (ft)`}
               </button>
@@ -691,7 +691,7 @@ export default function Calculator() {
 
           {/* Weight Input */}
           <div className="mb-6">
-            <label className="block text-lg font-semibold mb-2 text-text">
+            <label className="block text-sm font-medium mb-2 text-[var(--text-secondary)] uppercase tracking-wide">
               {t.weight}
             </label>
             <div className="flex gap-3">
@@ -702,14 +702,14 @@ export default function Calculator() {
                 step="0.1"
                 value={weightValue}
                 onChange={(e) => setWeightValue(e.target.value)}
-                className="tool-input flex-1"
+                className="input flex-1"
                 placeholder="70"
               />
               <button
                 onClick={() =>
                   setWeightUnit(weightUnit === 'kg' ? 'lbs' : 'kg')
                 }
-                className="btn-primary whitespace-nowrap"
+                className="btn btn-secondary whitespace-nowrap"
               >
                 {weightUnit === 'kg' ? 'kg' : 'lbs'}
               </button>
@@ -723,7 +723,7 @@ export default function Calculator() {
 
           {/* Age Input */}
           <div className="mb-6">
-            <label className="block text-lg font-semibold mb-2 text-text">
+            <label className="block text-sm font-medium mb-2 text-[var(--text-secondary)] uppercase tracking-wide">
               {t.age}
             </label>
             <input
@@ -732,14 +732,14 @@ export default function Calculator() {
               max="150"
               value={age}
               onChange={(e) => setAge(e.target.value)}
-              className="tool-input"
+              className="input"
               placeholder="25"
             />
           </div>
 
           {/* Gender Selector */}
           <div className="mb-6">
-            <label className="block text-lg font-semibold mb-2 text-text">
+            <label className="block text-sm font-medium mb-2 text-[var(--text-secondary)] uppercase tracking-wide">
               {t.gender}
             </label>
             <div className="flex gap-2">
@@ -747,11 +747,7 @@ export default function Calculator() {
                 <button
                   key={g}
                   onClick={() => setGender(g)}
-                  className={`flex-1 py-2 rounded-lg font-semibold transition-all ${
-                    gender === g
-                      ? 'bg-accent text-white'
-                      : 'bg-white/[0.04] text-text hover:bg-gray-200'
-                  }`}
+                  className={`flex-1 py-2.5 rounded-xl text-sm font-medium transition-all ${gender === g ? 'bg-[var(--accent)] text-white shadow-[var(--shadow-glow)]' : 'bg-[rgba(255,255,255,0.03)] text-[var(--text-secondary)] hover:bg-[rgba(255,255,255,0.06)]'}`}
                 >
                   {g === 'male' ? t.male : g === 'female' ? t.female : t.other}
                 </button>
@@ -762,7 +758,7 @@ export default function Calculator() {
           {/* Calculate Button */}
           <button
             onClick={calculateBMI}
-            className="btn-primary w-full py-4 text-lg"
+            className="btn btn-primary btn-lg w-full"
           >
             {t.calculate}
           </button>
@@ -770,15 +766,15 @@ export default function Calculator() {
 
         {/* Results */}
         {bmiResult && (
-          <div className="card max-w-lg mx-auto mb-8">
-            <h2 className="text-2xl font-bold mb-6 text-text text-center">
+          <div className="card max-w-lg mx-auto mb-8 animate-fade-up delay-200">
+            <h2 className="text-h2 mb-6 text-[var(--text-primary)] text-center">
               {t.result}
             </h2>
 
             {/* BMI Value */}
             <div className="text-center mb-6">
               <div
-                className="tool-result text-5xl mb-2"
+                className="result-value mb-2"
                 style={{ color: bmiResult.categoryColor }}
               >
                 {bmiResult.bmi}
@@ -793,11 +789,11 @@ export default function Calculator() {
 
             {/* BMI Scale/Gauge */}
             <div className="mb-6">
-              <div className="flex h-4 rounded-full overflow-hidden bg-gray-200 gap-0.5">
-                <div className="flex-1 bg-blue-500/100"></div>
-                <div className="flex-1 bg-green-500/100"></div>
-                <div className="flex-1 bg-orange-500/100"></div>
-                <div className="flex-1 bg-red-500/100"></div>
+              <div className="flex h-4 rounded-full overflow-hidden bg-[rgba(255,255,255,0.04)] gap-0.5">
+                <div className="flex-1 bg-blue-500"></div>
+                <div className="flex-1 bg-emerald-500"></div>
+                <div className="flex-1 bg-orange-500"></div>
+                <div className="flex-1 bg-red-500"></div>
               </div>
               <div className="flex justify-between text-xs text-text-muted mt-2">
                 <span>&lt;18.5</span>
@@ -814,7 +810,7 @@ export default function Calculator() {
             </div>
 
             {/* Healthy Range */}
-            <div className="bg-purple-500/10 rounded-lg p-4 mb-4 border border-purple-200">
+            <div className="bg-[rgba(var(--accent-rgb),0.08)] rounded-lg p-4 mb-4 border border-[rgba(255,255,255,0.08)]">
               <p className="text-sm text-text-muted mb-2">{t.healthyRange}</p>
               <p className="font-bold text-lg text-text">
                 {bmiResult.healthyMin} - {bmiResult.healthyMax} kg
@@ -822,7 +818,7 @@ export default function Calculator() {
             </div>
 
             {/* BMI Prime */}
-            <div className="bg-white/[0.02] rounded-lg p-4 border border-white/10">
+            <div className="bg-white/[0.02] rounded-lg p-4 border border-[rgba(255,255,255,0.06)]">
               <p className="text-sm text-text-muted mb-1">{t.bmiPrime}</p>
               <p className="font-bold text-lg text-text">
                 {bmiResult.bmiPrime}
@@ -836,7 +832,7 @@ export default function Calculator() {
 
         {/* Diet & Food Recommendations */}
         {bmiResult && (
-          <div className="card max-w-lg mx-auto mb-8">
+          <div className="card max-w-lg mx-auto mb-8 animate-fade-up delay-200">
             <h2 className="text-2xl font-bold mb-4 text-text">
               {language === 'ko' ? '식단 추천' : 'Diet Recommendations'}
             </h2>
@@ -970,7 +966,7 @@ export default function Calculator() {
         )}
 
         {/* BMI Reference Table */}
-        <div className="card max-w-lg mx-auto mb-8">
+        <div className="card max-w-lg mx-auto mb-8 animate-fade-up delay-200">
           <h2 className="text-2xl font-bold mb-4 text-text">{t.reference}</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
@@ -983,7 +979,7 @@ export default function Calculator() {
                 </tr>
               </thead>
               <tbody>
-                <tr className="border-b border-card-border hover:bg-purple-500/10">
+                <tr className="border-b border-card-border hover:bg-[rgba(var(--accent-rgb),0.08)]">
                   <td className="py-3 text-text">{t.underweight}</td>
                   <td className="text-right text-text">&lt; 18.5</td>
                 </tr>

@@ -1,27 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
-  <!-- Background circle -->
-  <circle cx="100" cy="100" r="95" fill="#7c5cbf" opacity="0.1" stroke="#7c5cbf" stroke-width="2"/>
-
-  <!-- Body/Person outline -->
-  <circle cx="100" cy="50" r="20" fill="#7c5cbf"/>
-
-  <!-- Shoulders and body -->
-  <path d="M 75 75 L 65 140 Q 65 155 80 155 L 85 155 L 85 130 Q 85 120 90 120 L 110 120 Q 115 120 115 130 L 115 155 L 120 155 Q 135 155 135 140 L 125 75" fill="#7c5cbf"/>
-
-  <!-- Scale lines (representing weight measurement) -->
-  <g stroke="#7c5cbf" stroke-width="2" stroke-linecap="round">
-    <line x1="60" y1="165" x2="140" y2="165"/>
-    <line x1="70" y1="160" x2="70" y2="170"/>
-    <line x1="85" y1="160" x2="85" y2="170"/>
-    <line x1="100" y1="160" x2="100" y2="170"/>
-    <line x1="115" y1="160" x2="115" y2="170"/>
-    <line x1="130" y1="160" x2="130" y2="170"/>
-  </g>
-
-  <!-- Height measurement line -->
-  <g stroke="#7c5cbf" stroke-width="2" stroke-linecap="round">
-    <line x1="30" y1="30" x2="30" y2="155"/>
-    <line x1="25" y1="30" x2="35" y2="30"/>
-    <line x1="25" y1="155" x2="35" y2="155"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#1D4ED8"/>
+    </linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="22" fill="url(#bg)"/>
+  <g fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
+    <!-- Scale/body outline -->
+    <path d="M50 22 L50 78" stroke-width="3"/>
+    <path d="M35 30 L65 30" stroke-width="2.5"/>
+    <circle cx="50" cy="45" r="18" stroke-width="2.5"/>
+    <!-- Gauge needle -->
+    <path d="M50 45 L61 38" stroke-width="3" stroke="rgba(255,255,255,0.95)"/>
+    <!-- Tick marks -->
+    <path d="M38 33 L42 37" stroke-width="2"/>
+    <path d="M62 33 L58 37" stroke-width="2"/>
+    <path d="M50 28 L50 32" stroke-width="2"/>
+    <!-- Base -->
+    <path d="M36 72 Q43 78 50 78 Q57 78 64 72" stroke-width="3" fill="rgba(255,255,255,0.15)"/>
   </g>
 </svg>

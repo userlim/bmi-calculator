@@ -157,7 +157,7 @@ export default function Home() {
 
       <Calculator />
 
-      <footer className="border-t border-[rgba(255,255,255,0.06)] mt-20 bg-[rgba(5,5,5,0.4)] backdrop-blur-xl">
+      <footer className="border-t border-[#F2F4F6] mt-20 bg-[rgba(5,5,5,0.4)] backdrop-blur-xl">
         <div className="max-w-4xl mx-auto px-4 py-8">
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             <div>
@@ -183,7 +183,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="text-center text-sm text-text-muted border-t border-white/10 pt-6">
+          <div className="text-center text-sm text-text-muted border-t border-[#E5E8EB] pt-6">
             <p>© 2026 BMI Calculator. All rights reserved. | Free online health calculator</p>
           </div>
         </div>
@@ -191,33 +191,33 @@ export default function Home() {
 
       {/* Extended Content Section for SEO depth */}
       <section id="content-depth-section" className="mt-20 max-w-3xl mx-auto px-6 relative z-[1]">
-        <h2 className="text-h2 mb-6 text-[var(--text-primary)]">Complete Guide</h2>
+        <h2 className="text-h2 mb-6 text-[#191F28]">Complete Guide</h2>
         
             <div className="mb-6">
-              <h3 className="text-h3 mb-2 text-[var(--text-primary)]">How BMI Is Calculated</h3>
-              <p className="text-[var(--text-secondary)] leading-relaxed text-sm" dangerouslySetInnerHTML={{ __html: `Body Mass Index (BMI) is one of the most widely used health screening metrics globally. The formula is straightforward: BMI = weight (kg) ÷ height² (m²). For imperial units, the formula becomes BMI = (weight in pounds × 703) ÷ height² (in inches). This formula was developed by Belgian mathematician Adolphe Quetelet in the 1830s and has been adopted by the World Health Organization (WHO) as a standard health assessment tool.` }} />
+              <h3 className="text-h3 mb-2 text-[#191F28]">How BMI Is Calculated</h3>
+              <p className="text-[#4E5968] leading-relaxed text-sm" dangerouslySetInnerHTML={{ __html: `Body Mass Index (BMI) is one of the most widely used health screening metrics globally. The formula is straightforward: BMI = weight (kg) ÷ height² (m²). For imperial units, the formula becomes BMI = (weight in pounds × 703) ÷ height² (in inches). This formula was developed by Belgian mathematician Adolphe Quetelet in the 1830s and has been adopted by the World Health Organization (WHO) as a standard health assessment tool.` }} />
             </div>
             <div className="mb-6">
-              <h3 className="text-h3 mb-2 text-[var(--text-primary)]">Understanding BMI Categories</h3>
-              <p className="text-[var(--text-secondary)] leading-relaxed text-sm" dangerouslySetInnerHTML={{ __html: `The WHO classifies BMI into four main categories. <strong>Underweight</strong> is defined as a BMI below 18.5, which may indicate nutritional deficiency or underlying health conditions. <strong>Normal weight</strong> ranges from 18.5 to 24.9, considered the healthiest range for most adults. <strong>Overweight</strong> spans 25.0 to 29.9, indicating excess body weight that may increase health risks. <strong>Obese</strong> is classified as 30.0 and above, with further subdivisions into Class I (30-34.9), Class II (35-39.9), and Class III (40+) obesity.` }} />
+              <h3 className="text-h3 mb-2 text-[#191F28]">Understanding BMI Categories</h3>
+              <p className="text-[#4E5968] leading-relaxed text-sm" dangerouslySetInnerHTML={{ __html: `The WHO classifies BMI into four main categories. <strong>Underweight</strong> is defined as a BMI below 18.5, which may indicate nutritional deficiency or underlying health conditions. <strong>Normal weight</strong> ranges from 18.5 to 24.9, considered the healthiest range for most adults. <strong>Overweight</strong> spans 25.0 to 29.9, indicating excess body weight that may increase health risks. <strong>Obese</strong> is classified as 30.0 and above, with further subdivisions into Class I (30-34.9), Class II (35-39.9), and Class III (40+) obesity.` }} />
             </div>
             <div className="mb-6">
-              <h3 className="text-h3 mb-2 text-[var(--text-primary)]">BMI Limitations and Alternatives</h3>
-              <p className="text-[var(--text-secondary)] leading-relaxed text-sm" dangerouslySetInnerHTML={{ __html: `While BMI is a useful screening tool, it has notable limitations. It cannot distinguish between muscle mass and fat mass, meaning athletes and bodybuilders may be classified as overweight despite having low body fat percentages. BMI also doesn't account for age, sex, ethnicity, or body fat distribution. Waist-to-hip ratio, body fat percentage measurements, and the newer Body Roundness Index (BRI) are complementary metrics that provide a more complete picture of body composition and health risk.` }} />
+              <h3 className="text-h3 mb-2 text-[#191F28]">BMI Limitations and Alternatives</h3>
+              <p className="text-[#4E5968] leading-relaxed text-sm" dangerouslySetInnerHTML={{ __html: `While BMI is a useful screening tool, it has notable limitations. It cannot distinguish between muscle mass and fat mass, meaning athletes and bodybuilders may be classified as overweight despite having low body fat percentages. BMI also doesn't account for age, sex, ethnicity, or body fat distribution. Waist-to-hip ratio, body fat percentage measurements, and the newer Body Roundness Index (BRI) are complementary metrics that provide a more complete picture of body composition and health risk.` }} />
             </div>
             <div className="mb-6">
-              <h3 className="text-h3 mb-2 text-[var(--text-primary)]">Health Risks Associated with Abnormal BMI</h3>
-              <p className="text-[var(--text-secondary)] leading-relaxed text-sm" dangerouslySetInnerHTML={{ __html: `Research consistently shows correlations between BMI outside the normal range and increased health risks. Higher BMI is associated with increased risk of cardiovascular disease, type 2 diabetes, certain cancers, and joint problems. Conversely, very low BMI is associated with weakened immune function, osteoporosis, and nutritional deficiencies. However, BMI should be considered alongside other health indicators rather than used in isolation for medical decisions.` }} />
+              <h3 className="text-h3 mb-2 text-[#191F28]">Health Risks Associated with Abnormal BMI</h3>
+              <p className="text-[#4E5968] leading-relaxed text-sm" dangerouslySetInnerHTML={{ __html: `Research consistently shows correlations between BMI outside the normal range and increased health risks. Higher BMI is associated with increased risk of cardiovascular disease, type 2 diabetes, certain cancers, and joint problems. Conversely, very low BMI is associated with weakened immune function, osteoporosis, and nutritional deficiencies. However, BMI should be considered alongside other health indicators rather than used in isolation for medical decisions.` }} />
             </div>
             <div className="mb-6">
-              <h3 className="text-h3 mb-2 text-[var(--text-primary)]">Tips for Maintaining a Healthy BMI</h3>
-              <p className="text-[var(--text-secondary)] leading-relaxed text-sm" dangerouslySetInnerHTML={{ __html: `Achieving and maintaining a healthy BMI involves a balanced approach to diet and physical activity. The CDC recommends at least 150 minutes of moderate-intensity aerobic activity per week, combined with a nutrient-rich diet. Small, sustainable changes — like taking stairs instead of elevators, choosing whole grains, and managing portion sizes — often prove more effective than drastic lifestyle overhauls. Regular monitoring of your BMI can help you track progress toward your health goals.` }} />
+              <h3 className="text-h3 mb-2 text-[#191F28]">Tips for Maintaining a Healthy BMI</h3>
+              <p className="text-[#4E5968] leading-relaxed text-sm" dangerouslySetInnerHTML={{ __html: `Achieving and maintaining a healthy BMI involves a balanced approach to diet and physical activity. The CDC recommends at least 150 minutes of moderate-intensity aerobic activity per week, combined with a nutrient-rich diet. Small, sustainable changes — like taking stairs instead of elevators, choosing whole grains, and managing portion sizes — often prove more effective than drastic lifestyle overhauls. Regular monitoring of your BMI can help you track progress toward your health goals.` }} />
             </div>
       </section>
     
       {/* Keyword-Optimized Content */}
       <section id="keyword-seo-section" className="mt-12 max-w-3xl mx-auto px-6 pb-16 relative z-[1]">
-        <p className="text-sm text-[var(--text-muted)] leading-relaxed">
+        <p className="text-sm text-[#8B95A1] leading-relaxed">
           Our free BMI calculator helps you instantly check your body mass index. Whether you need a healthy weight calculator, an ideal weight calculator, or want to know your normal BMI range, this tool delivers accurate results in seconds. Updated for 2026 with the latest WHO health categories.
         </p>
 <div className="mt-3 flex flex-wrap gap-2">

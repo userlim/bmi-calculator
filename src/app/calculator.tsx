@@ -659,7 +659,7 @@ export default function Calculator() {
         <div className="card max-w-lg mx-auto mb-8 animate-fade-up delay-200">
           {/* Height Input */}
           <div className="mb-6">
-            <label className="block text-sm font-medium mb-2 text-[var(--text-secondary)] uppercase tracking-wide">
+            <label className="block text-sm font-medium mb-2 text-[#4E5968] uppercase tracking-wide">
               {t.height}
             </label>
             <div className="flex gap-3">
@@ -691,7 +691,7 @@ export default function Calculator() {
 
           {/* Weight Input */}
           <div className="mb-6">
-            <label className="block text-sm font-medium mb-2 text-[var(--text-secondary)] uppercase tracking-wide">
+            <label className="block text-sm font-medium mb-2 text-[#4E5968] uppercase tracking-wide">
               {t.weight}
             </label>
             <div className="flex gap-3">
@@ -723,7 +723,7 @@ export default function Calculator() {
 
           {/* Age Input */}
           <div className="mb-6">
-            <label className="block text-sm font-medium mb-2 text-[var(--text-secondary)] uppercase tracking-wide">
+            <label className="block text-sm font-medium mb-2 text-[#4E5968] uppercase tracking-wide">
               {t.age}
             </label>
             <input
@@ -739,7 +739,7 @@ export default function Calculator() {
 
           {/* Gender Selector */}
           <div className="mb-6">
-            <label className="block text-sm font-medium mb-2 text-[var(--text-secondary)] uppercase tracking-wide">
+            <label className="block text-sm font-medium mb-2 text-[#4E5968] uppercase tracking-wide">
               {t.gender}
             </label>
             <div className="flex gap-2">
@@ -747,7 +747,7 @@ export default function Calculator() {
                 <button
                   key={g}
                   onClick={() => setGender(g)}
-                  className={`flex-1 py-2.5 rounded-xl text-sm font-medium transition-all ${gender === g ? 'bg-[var(--accent)] text-white shadow-[var(--shadow-glow)]' : 'bg-[rgba(255,255,255,0.03)] text-[var(--text-secondary)] hover:bg-[rgba(255,255,255,0.06)]'}`}
+                  className={`flex-1 py-2.5 rounded-xl text-sm font-medium transition-all ${gender === g ? 'bg-[var(--accent)] text-[#191F28] shadow-md' : 'bg-white text-[#4E5968] hover:bg-[#F7F8FA]'}`}
                 >
                   {g === 'male' ? t.male : g === 'female' ? t.female : t.other}
                 </button>
@@ -767,7 +767,7 @@ export default function Calculator() {
         {/* Results */}
         {bmiResult && (
           <div className="card max-w-lg mx-auto mb-8 animate-fade-up delay-200">
-            <h2 className="text-h2 mb-6 text-[var(--text-primary)] text-center">
+            <h2 className="text-h2 mb-6 text-[#191F28] text-center">
               {t.result}
             </h2>
 
@@ -789,7 +789,7 @@ export default function Calculator() {
 
             {/* BMI Scale/Gauge */}
             <div className="mb-6">
-              <div className="flex h-4 rounded-full overflow-hidden bg-[rgba(255,255,255,0.04)] gap-0.5">
+              <div className="flex h-4 rounded-full overflow-hidden bg-[#F7F8FA] gap-0.5">
                 <div className="flex-1 bg-blue-500"></div>
                 <div className="flex-1 bg-emerald-500"></div>
                 <div className="flex-1 bg-orange-500"></div>
@@ -818,7 +818,7 @@ export default function Calculator() {
             </div>
 
             {/* BMI Prime */}
-            <div className="bg-white/[0.02] rounded-lg p-4 border border-[rgba(255,255,255,0.06)]">
+            <div className="bg-white/[0.02] rounded-lg p-4 border border-[#F2F4F6]">
               <p className="text-sm text-text-muted mb-1">{t.bmiPrime}</p>
               <p className="font-bold text-lg text-text">
                 {bmiResult.bmiPrime}

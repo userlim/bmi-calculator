@@ -522,12 +522,12 @@ const translations: Record<Language, TextStrings> = {
 
 function FoodCard({ emoji, name, desc, cal }: { emoji: string; name: string; desc: string; cal: string }) {
   return (
-    <div className="flex items-start gap-3 p-3 rounded-xl bg-white/[0.02] hover:bg-white/[0.04] transition-colors">
+    <div className="flex items-start gap-3 p-3 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors">
       <span className="text-3xl mt-0.5">{emoji}</span>
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 flex-wrap">
           <span className="font-bold text-sm text-text">{name}</span>
-          <span className="text-xs px-2 py-0.5 bg-[rgba(var(--accent-rgb),0.12)] text-[var(--accent)] rounded-full font-semibold">{cal}</span>
+          <span className="text-xs px-2 py-0.5 bg-purple-100 text-purple-700 rounded-full font-semibold">{cal}</span>
         </div>
         <p className="text-xs text-text-muted mt-0.5">{desc}</p>
       </div>
@@ -632,14 +632,14 @@ export default function Calculator() {
   if (!mounted) return null
 
   return (
-    <div className="min-h-screen bg-transparent py-8 px-4">
+    <div className="min-h-screen py-8 px-4">
       <div className="max-w-4xl mx-auto">
         {/* Language Selector */}
         <div className="flex justify-end mb-6">
           <select
             value={language}
             onChange={(e) => setLanguage(e.target.value as Language)}
-            className="input px-3 py-2 text-sm w-auto"
+            className="tool-input px-3 py-2 text-sm w-auto"
           >
             {Object.keys(translations).map((lang) => (
               <option key={lang} value={lang}>
@@ -649,17 +649,17 @@ export default function Calculator() {
           </select>
         </div>
 
-        <h1 className="hero-title text-center mb-3 animate-fade-up">
+        <h1 className="text-4xl md:text-5xl font-bold text-center mb-2 text-accent">
           {t.title}
         </h1>
-        <p className="hero-subtitle text-center mb-10 animate-fade-up delay-100">
+        <p className="text-center text-text-muted mb-8">
           {t.categoryInfo}
         </p>
 
-        <div className="card max-w-lg mx-auto mb-8 animate-fade-up delay-200">
+        <div className="card max-w-lg mx-auto mb-8">
           {/* Height Input */}
           <div className="mb-6">
-            <label className="block text-sm font-medium mb-2 text-[#4E5968] uppercase tracking-wide">
+            <label className="block text-lg font-semibold mb-2 text-text">
               {t.height}
             </label>
             <div className="flex gap-3">
@@ -670,14 +670,14 @@ export default function Calculator() {
                 step="0.1"
                 value={heightValue}
                 onChange={(e) => setHeightValue(e.target.value)}
-                className="input flex-1"
+                className="tool-input flex-1"
                 placeholder="170"
               />
               <button
                 onClick={() =>
                   setHeightUnit(heightUnit === 'cm' ? 'ft' : 'cm')
                 }
-                className="btn btn-secondary whitespace-nowrap"
+                className="btn-primary whitespace-nowrap"
               >
                 {heightUnit === 'cm' ? 'cm' : `${t.height} (ft)`}
               </button>
@@ -691,7 +691,7 @@ export default function Calculator() {
 
           {/* Weight Input */}
           <div className="mb-6">
-            <label className="block text-sm font-medium mb-2 text-[#4E5968] uppercase tracking-wide">
+            <label className="block text-lg font-semibold mb-2 text-text">
               {t.weight}
             </label>
             <div className="flex gap-3">
@@ -702,14 +702,14 @@ export default function Calculator() {
                 step="0.1"
                 value={weightValue}
                 onChange={(e) => setWeightValue(e.target.value)}
-                className="input flex-1"
+                className="tool-input flex-1"
                 placeholder="70"
               />
               <button
                 onClick={() =>
                   setWeightUnit(weightUnit === 'kg' ? 'lbs' : 'kg')
                 }
-                className="btn btn-secondary whitespace-nowrap"
+                className="btn-primary whitespace-nowrap"
               >
                 {weightUnit === 'kg' ? 'kg' : 'lbs'}
               </button>
@@ -723,7 +723,7 @@ export default function Calculator() {
 
           {/* Age Input */}
           <div className="mb-6">
-            <label className="block text-sm font-medium mb-2 text-[#4E5968] uppercase tracking-wide">
+            <label className="block text-lg font-semibold mb-2 text-text">
               {t.age}
             </label>
             <input
@@ -732,14 +732,14 @@ export default function Calculator() {
               max="150"
               value={age}
               onChange={(e) => setAge(e.target.value)}
-              className="input"
+              className="tool-input"
               placeholder="25"
             />
           </div>
 
           {/* Gender Selector */}
           <div className="mb-6">
-            <label className="block text-sm font-medium mb-2 text-[#4E5968] uppercase tracking-wide">
+            <label className="block text-lg font-semibold mb-2 text-text">
               {t.gender}
             </label>
             <div className="flex gap-2">
@@ -747,7 +747,11 @@ export default function Calculator() {
                 <button
                   key={g}
                   onClick={() => setGender(g)}
-                  className={`flex-1 py-2.5 rounded-xl text-sm font-medium transition-all ${gender === g ? 'bg-[var(--accent)] text-[#191F28] shadow-md' : 'bg-white text-[#4E5968] hover:bg-[#F7F8FA]'}`}
+                  className={`flex-1 py-2 rounded-lg font-semibold transition-all ${
+                    gender === g
+                      ? 'bg-accent text-white'
+                      : 'bg-gray-100 text-text hover:bg-gray-200'
+                  }`}
                 >
                   {g === 'male' ? t.male : g === 'female' ? t.female : t.other}
                 </button>
@@ -758,7 +762,7 @@ export default function Calculator() {
           {/* Calculate Button */}
           <button
             onClick={calculateBMI}
-            className="btn btn-primary btn-lg w-full"
+            className="btn-primary w-full py-4 text-lg"
           >
             {t.calculate}
           </button>
@@ -766,15 +770,15 @@ export default function Calculator() {
 
         {/* Results */}
         {bmiResult && (
-          <div className="card max-w-lg mx-auto mb-8 animate-fade-up delay-200">
-            <h2 className="text-h2 mb-6 text-[#191F28] text-center">
+          <div className="card max-w-lg mx-auto mb-8">
+            <h2 className="text-2xl font-bold mb-6 text-text text-center">
               {t.result}
             </h2>
 
             {/* BMI Value */}
             <div className="text-center mb-6">
               <div
-                className="result-value mb-2"
+                className="tool-result text-5xl mb-2"
                 style={{ color: bmiResult.categoryColor }}
               >
                 {bmiResult.bmi}
@@ -789,9 +793,9 @@ export default function Calculator() {
 
             {/* BMI Scale/Gauge */}
             <div className="mb-6">
-              <div className="flex h-4 rounded-full overflow-hidden bg-[#F7F8FA] gap-0.5">
+              <div className="flex h-4 rounded-full overflow-hidden bg-gray-200 gap-0.5">
                 <div className="flex-1 bg-blue-500"></div>
-                <div className="flex-1 bg-emerald-500"></div>
+                <div className="flex-1 bg-green-500"></div>
                 <div className="flex-1 bg-orange-500"></div>
                 <div className="flex-1 bg-red-500"></div>
               </div>
@@ -810,7 +814,7 @@ export default function Calculator() {
             </div>
 
             {/* Healthy Range */}
-            <div className="bg-[rgba(var(--accent-rgb),0.08)] rounded-lg p-4 mb-4 border border-[rgba(255,255,255,0.08)]">
+            <div className="bg-purple-50 rounded-lg p-4 mb-4 border border-purple-200">
               <p className="text-sm text-text-muted mb-2">{t.healthyRange}</p>
               <p className="font-bold text-lg text-text">
                 {bmiResult.healthyMin} - {bmiResult.healthyMax} kg
@@ -818,7 +822,7 @@ export default function Calculator() {
             </div>
 
             {/* BMI Prime */}
-            <div className="bg-white/[0.02] rounded-lg p-4 border border-[#F2F4F6]">
+            <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
               <p className="text-sm text-text-muted mb-1">{t.bmiPrime}</p>
               <p className="font-bold text-lg text-text">
                 {bmiResult.bmiPrime}
@@ -832,14 +836,14 @@ export default function Calculator() {
 
         {/* Diet & Food Recommendations */}
         {bmiResult && (
-          <div className="card max-w-lg mx-auto mb-8 animate-fade-up delay-200">
+          <div className="card max-w-lg mx-auto mb-8">
             <h2 className="text-2xl font-bold mb-4 text-text">
               {language === 'ko' ? '식단 추천' : 'Diet Recommendations'}
             </h2>
 
             {bmiResult.bmi < 18.5 && (
               <div>
-                <div className="bg-blue-500/10 border-l-4 border-blue-400 p-4 rounded mb-4">
+                <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded mb-4">
                   <p className="font-bold text-blue-800 mb-2">
                     {language === 'ko' ? '체중 증가가 필요합니다' : 'You need to gain weight'}
                   </p>
@@ -857,7 +861,7 @@ export default function Calculator() {
                   <FoodCard emoji="🥛" name={language === 'ko' ? '우유 & 그릭요거트' : 'Milk & Greek Yogurt'} desc={language === 'ko' ? '칼슘과 단백질 보충에 좋은 유제품' : 'Great dairy sources for calcium and protein'} cal="60-100 kcal/100g" />
                   <FoodCard emoji="🫒" name={language === 'ko' ? '올리브오일 & 들기름' : 'Olive Oil & Healthy Oils'} desc={language === 'ko' ? '요리에 추가하면 쉽게 칼로리 증가' : 'Easy way to add calories to any meal'} cal="880 kcal/100ml" />
                 </div>
-                <div className="mt-4 bg-blue-500/10 rounded-lg p-4">
+                <div className="mt-4 bg-blue-50 rounded-lg p-4">
                   <p className="font-semibold text-sm text-blue-800 mb-2">{language === 'ko' ? '추천 습관' : 'Recommended Habits'}</p>
                   <ul className="text-sm text-blue-700 space-y-1">
                     <li>{language === 'ko' ? '• 하루 3끼 + 간식 2~3회' : '• Eat 3 meals + 2-3 snacks daily'}</li>
@@ -870,7 +874,7 @@ export default function Calculator() {
 
             {bmiResult.bmi >= 18.5 && bmiResult.bmi < 25 && (
               <div>
-                <div className="bg-green-500/10 border-l-4 border-green-400 p-4 rounded mb-4">
+                <div className="bg-green-50 border-l-4 border-green-400 p-4 rounded mb-4">
                   <p className="font-bold text-green-800 mb-2">
                     {language === 'ko' ? '정상 체중입니다! 유지하세요' : 'You are at a healthy weight! Keep it up!'}
                   </p>
@@ -887,7 +891,7 @@ export default function Calculator() {
                   <FoodCard emoji="🍎" name={language === 'ko' ? '제철 과일' : 'Seasonal Fruits'} desc={language === 'ko' ? '사과, 바나나, 베리류 — 자연의 당분과 비타민' : 'Apples, bananas, berries — natural sugars and vitamins'} cal="50-90 kcal/100g" />
                   <FoodCard emoji="🥩" name={language === 'ko' ? '살코기 (닭, 소 안심)' : 'Lean Meats (Chicken, Beef Tenderloin)'} desc={language === 'ko' ? '필수 아미노산 공급, 근육 유지' : 'Essential amino acids for muscle maintenance'} cal="150-200 kcal/100g" />
                 </div>
-                <div className="mt-4 bg-green-500/10 rounded-lg p-4">
+                <div className="mt-4 bg-green-50 rounded-lg p-4">
                   <p className="font-semibold text-sm text-green-800 mb-2">{language === 'ko' ? '유지 습관' : 'Maintenance Habits'}</p>
                   <ul className="text-sm text-green-700 space-y-1">
                     <li>{language === 'ko' ? '• 하루 물 8잔 이상 마시기' : '• Drink 8+ glasses of water daily'}</li>
@@ -900,7 +904,7 @@ export default function Calculator() {
 
             {bmiResult.bmi >= 25 && bmiResult.bmi < 30 && (
               <div>
-                <div className="bg-orange-500/10 border-l-4 border-orange-400 p-4 rounded mb-4">
+                <div className="bg-orange-50 border-l-4 border-orange-400 p-4 rounded mb-4">
                   <p className="font-bold text-orange-800 mb-2">
                     {language === 'ko' ? '체중 감량을 권장합니다' : 'Weight loss is recommended'}
                   </p>
@@ -918,7 +922,7 @@ export default function Calculator() {
                   <FoodCard emoji="🫚" name={language === 'ko' ? '생강차 & 녹차' : 'Ginger Tea & Green Tea'} desc={language === 'ko' ? '신진대사 촉진, 지방 연소 도움' : 'Boosts metabolism, helps fat burning'} cal="0-2 kcal/cup" />
                   <FoodCard emoji="🥚" name={language === 'ko' ? '삶은 계란' : 'Boiled Eggs'} desc={language === 'ko' ? '포만감 높고 단백질 풍부한 간식' : 'High satiety, protein-rich snack'} cal="155 kcal/100g" />
                 </div>
-                <div className="mt-4 bg-orange-500/10 rounded-lg p-4">
+                <div className="mt-4 bg-orange-50 rounded-lg p-4">
                   <p className="font-semibold text-sm text-orange-800 mb-2">{language === 'ko' ? '감량 습관' : 'Weight Loss Habits'}</p>
                   <ul className="text-sm text-orange-700 space-y-1">
                     <li>{language === 'ko' ? '• 하루 500kcal 적게 먹기 (주 0.5kg 감량)' : '• Eat 500kcal less per day (lose ~0.5kg/week)'}</li>
@@ -932,7 +936,7 @@ export default function Calculator() {
 
             {bmiResult.bmi >= 30 && (
               <div>
-                <div className="bg-red-500/10 border-l-4 border-red-400 p-4 rounded mb-4">
+                <div className="bg-red-50 border-l-4 border-red-400 p-4 rounded mb-4">
                   <p className="font-bold text-red-800 mb-2">
                     {language === 'ko' ? '건강 관리가 시급합니다' : 'Immediate health management needed'}
                   </p>
@@ -950,7 +954,7 @@ export default function Calculator() {
                   <FoodCard emoji="🍵" name={language === 'ko' ? '녹차 & 무가당 음료' : 'Green Tea & Unsweetened Drinks'} desc={language === 'ko' ? '설탕 음료 대체, 카테킨이 지방 분해 도움' : 'Replace sugary drinks, catechins help break down fat'} cal="0-2 kcal/cup" />
                   <FoodCard emoji="🥕" name={language === 'ko' ? '당근 & 토마토' : 'Carrots & Tomatoes'} desc={language === 'ko' ? '식이섬유 풍부, 포만감 높은 건강 간식' : 'High fiber, satisfying healthy snack'} cal="18-41 kcal/100g" />
                 </div>
-                <div className="mt-4 bg-red-500/10 rounded-lg p-4">
+                <div className="mt-4 bg-red-50 rounded-lg p-4">
                   <p className="font-semibold text-sm text-red-800 mb-2">{language === 'ko' ? '필수 실천 사항' : 'Essential Actions'}</p>
                   <ul className="text-sm text-red-700 space-y-1">
                     <li>{language === 'ko' ? '• 전문의 상담 필수 (내과 / 비만클리닉)' : '• Consult a doctor (internal medicine / obesity clinic)'}</li>
@@ -966,7 +970,7 @@ export default function Calculator() {
         )}
 
         {/* BMI Reference Table */}
-        <div className="card max-w-lg mx-auto mb-8 animate-fade-up delay-200">
+        <div className="card max-w-lg mx-auto mb-8">
           <h2 className="text-2xl font-bold mb-4 text-text">{t.reference}</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
@@ -979,19 +983,19 @@ export default function Calculator() {
                 </tr>
               </thead>
               <tbody>
-                <tr className="border-b border-card-border hover:bg-[rgba(var(--accent-rgb),0.08)]">
+                <tr className="border-b border-card-border hover:bg-purple-50">
                   <td className="py-3 text-text">{t.underweight}</td>
                   <td className="text-right text-text">&lt; 18.5</td>
                 </tr>
-                <tr className="border-b border-card-border hover:bg-green-500/10">
+                <tr className="border-b border-card-border hover:bg-green-50">
                   <td className="py-3 text-text">{t.normal}</td>
                   <td className="text-right text-text">18.5 – 24.9</td>
                 </tr>
-                <tr className="border-b border-card-border hover:bg-orange-500/10">
+                <tr className="border-b border-card-border hover:bg-orange-50">
                   <td className="py-3 text-text">{t.overweight}</td>
                   <td className="text-right text-text">25 – 29.9</td>
                 </tr>
-                <tr className="hover:bg-red-500/10">
+                <tr className="hover:bg-red-50">
                   <td className="py-3 text-text">{t.obese}</td>
                   <td className="text-right text-text">≥ 30</td>
                 </tr>
@@ -1001,7 +1005,7 @@ export default function Calculator() {
         </div>
 
         {/* Disclaimer */}
-        <div className="bg-yellow-500/10 border-l-4 border-yellow-400 p-4 rounded max-w-lg mx-auto">
+        <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded max-w-lg mx-auto">
           <p className="text-sm text-yellow-800">{t.disclaimer}</p>
         </div>
       </div>
